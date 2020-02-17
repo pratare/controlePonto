@@ -1,4 +1,4 @@
-package service;
+package com.itau.controlePonto.service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -6,7 +6,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import models.Usuario;
+import com.itau.controlePonto.models.Usuario;
 
 @Repository
 @Transactional

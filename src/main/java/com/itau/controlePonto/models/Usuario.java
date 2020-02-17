@@ -1,4 +1,4 @@
-package models;
+package com.itau.controlePonto.models;
 
 import java.util.Date;
 

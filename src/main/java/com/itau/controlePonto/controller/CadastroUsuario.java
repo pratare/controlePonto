@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import models.Usuario;
-import service.UsuarioService;
+import com.itau.controlePonto.models.Usuario;
+import com.itau.controlePonto.service.UsuarioService;
 
 @RestController
 public class CadastroUsuario {

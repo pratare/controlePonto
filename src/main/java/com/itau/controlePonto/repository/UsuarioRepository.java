@@ -1,8 +1,8 @@
-package repository;
+package com.itau.controlePonto.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import models.Usuario;
+import com.itau.controlePonto.models.Usuario;
 
 public interface UsuarioRepository extends CrudRepository<Usuario, Integer>{
 

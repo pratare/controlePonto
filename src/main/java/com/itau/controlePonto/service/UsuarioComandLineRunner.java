@@ -1,4 +1,4 @@
-package service;
+package com.itau.controlePonto.service;
 
 import java.util.Date;
 
@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import models.Usuario;
+import com.itau.controlePonto.models.Usuario;
 
 @Component
 public class UsuarioComandLineRunner implements CommandLineRunner{
