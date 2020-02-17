@@ -18,10 +18,13 @@ public class Usuario {
 	private String cpf;
 	
 	private Date cadastro;
+	
+	public Usuario() {
+		
+	}
 
-	public Usuario(Integer id, String name, String cpf, Date cadastro) {
+	public Usuario(String name, String cpf, Date cadastro) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
 		this.cadastro = cadastro;

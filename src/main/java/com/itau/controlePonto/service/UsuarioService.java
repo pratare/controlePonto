@@ -1,23 +1,39 @@
 package com.itau.controlePonto.service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
 import com.itau.controlePonto.models.Usuario;
 
-@Repository
-@Transactional
+@Component
 public class UsuarioService {
 	
-	@PersistenceContext
-	private EntityManager entityManager;
+private static List<Usuario> usuarios = new ArrayList<>();
 	
-	public long insert(Usuario usuario) {
-		entityManager.persist(usuario);
-		return usuario.getId();
+	private static int contadorUsuario = 0;
+	
+	public List<Usuario> findAll() {
+		return usuarios;
+	}
+	
+	public Usuario criar(Usuario usuario) {
+		if(usuario.getId() == null) {
+			usuario.setId(++contadorUsuario);
+		}
+		usuarios.add(usuario);
+		
+		return usuario;
+	}
+	
+	public Usuario findOne(int id) {
+		for(Usuario usuario:usuarios) {
+			if(usuario.getId() == id) {
+				return usuario;
+			}
+		}
+		return null;
 	}
 
 }
