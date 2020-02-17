@@ -21,8 +21,8 @@ public class UsuarioComandLineRunner implements CommandLineRunner{
 	
 	@Override
 	public void run(String... args) throws Exception {
-		Usuario usuario = new Usuario(1,"Prata","32682714803", new Date());
-		long insert = usuarioService.insert(usuario);
+		Usuario usuario = new Usuario("Prata","32682714803", new Date());
+		Usuario insert = usuarioService.criar(usuario);
 		log.info("novo usuario criado "+ usuario);
 	}
 
