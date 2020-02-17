@@ -1,4 +1,4 @@
-package controller;
+package com.itau.controlePonto.controller;
 
 import java.net.URI;
 import java.util.List;
