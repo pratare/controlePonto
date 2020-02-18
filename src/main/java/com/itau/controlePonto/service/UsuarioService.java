@@ -1,6 +1,7 @@
 package com.itau.controlePonto.service;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +20,7 @@ public class UsuarioService {
 @Autowired
 private UsuarioRepository usuarioRepository;
 	
+private static List<Usuario> usuarios = new ArrayList<>();	
 	
 	public List<Usuario> listarUsuarios() {
 		return usuarioRepository.findAll();
@@ -43,15 +45,22 @@ private UsuarioRepository usuarioRepository;
 		return ResponseEntity.created(location).build();
 	}
 	
-	public ResponseEntity<Object> atualizarUsuario(Usuario usuario) {
-		Usuario usuarioAtualizado = usuarioRepository.save(usuario);
+	public ResponseEntity<Object> atualizarUsuario(int id, Usuario usuario) {
+		for(Usuario user:usuarios) {
+			if(user.getId() == id) {
+				Usuario usuarioCriado = usuarioRepository.save(usuario);
+				
+				ServletUriComponentsBuilder
+					.fromCurrentRequest()
+					.path("/{id}")
+					.buildAndExpand(usuarioCriado.getId()).toUri();
+				
+				return ResponseEntity.ok().build();
+			}
+		}
 		
-		ServletUriComponentsBuilder
-				.fromCurrentRequest()
-				.path("/{id}")
-				.buildAndExpand(usuarioAtualizado.getId()).toUri();
-		
-		return ResponseEntity.ok().build(); 
+		return ResponseEntity.unprocessableEntity().build();
+		 
 	}
 
 }

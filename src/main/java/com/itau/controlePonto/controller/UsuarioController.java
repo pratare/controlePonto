@@ -39,9 +39,9 @@ public class UsuarioController {
 		return usuarioService.criar(usuario);
 	}
 	
-	@PutMapping("/usuario")
-	public ResponseEntity<Object> atualizarUsuario(@Valid @RequestBody Usuario usuario) {
-		return usuarioService.atualizarUsuario(usuario); 
+	@PutMapping("/usuario/{id}")
+	public ResponseEntity<Object> atualizarUsuario(@PathVariable int id, @Valid @RequestBody Usuario usuario) {
+		return usuarioService.atualizarUsuario(id, usuario); 
 	}
 
 }
