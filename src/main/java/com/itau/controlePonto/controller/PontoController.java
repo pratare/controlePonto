@@ -27,8 +27,8 @@ public class PontoController {
 	}
 	
 	@PostMapping("/usuario/{id}/ponto")
-	public ResponseEntity<Object> baterPonto(@PathVariable int id, @Valid @RequestBody Ponto ponto) {
-		return pontoService.baterPonto(id,ponto);
+	public ResponseEntity<Object> baterPonto(@PathVariable int id, @Valid @RequestBody Ponto tipoPonto) {
+		return pontoService.baterPonto(id,tipoPonto);
 	}
 
 }

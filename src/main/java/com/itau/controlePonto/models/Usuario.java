@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -23,19 +24,22 @@ public class Usuario {
 	
 	private Date cadastro;
 	
-	@OneToMany(mappedBy="usuario")
+	private long totalHorasTrabalhadas;
+	
+	@OneToMany(mappedBy="usuario", fetch=FetchType.LAZY)
 	private List<Ponto> pontos;
 	
 	public Usuario() {
 		
 	}
 
-	public Usuario(String name, String cpf, String email, Date cadastro) {
+	public Usuario(String name, String cpf, String email, Date cadastro, long totalHorasTrabalhadas) {
 		super();
 		this.name = name;
 		this.cpf = cpf;
 		this.email = email;
 		this.cadastro = cadastro;
+		this.totalHorasTrabalhadas = totalHorasTrabalhadas;
 	}
 
 	public Integer getId() {
@@ -84,6 +88,14 @@ public class Usuario {
 
 	public void setPontos(List<Ponto> pontos) {
 		this.pontos = pontos;
+	}
+
+	public long getTotalHorasTrabalhadas() {
+		return totalHorasTrabalhadas;
+	}
+
+	public void setTotalHorasTrabalhadas(long totalHorasTrabalhadas) {
+		this.totalHorasTrabalhadas = totalHorasTrabalhadas;
 	}
 	
 }

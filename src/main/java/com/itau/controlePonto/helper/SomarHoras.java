@@ -1,15 +1,17 @@
 package com.itau.controlePonto.helper;
 
-import java.util.Date;
+import java.time.Duration;
+import java.time.LocalDateTime;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class SomarHoras {
 	
-	public Date totalHorasTrabalhadas(Date dataEnrada, Date dataSaida) {
-		
-		
-		
-		return dataEnrada;
+	public Duration horasTrabalhadas(LocalDateTime dataEnrada, LocalDateTime dataSaida) {
+		Duration duracao = Duration.between(dataEnrada, dataSaida);
+		return duracao;
 		
 	}
-
+	
 }

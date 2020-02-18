@@ -23,7 +23,7 @@ private static final Logger log = LoggerFactory.getLogger(UsuarioRepositoryComma
 	
 	@Override
 	public void run(String... args) throws Exception {
-		Usuario usuario = new Usuario("Gracia","8764325671", "gracia.prata@hotmail.com", new Date());
+		Usuario usuario = new Usuario("Gracia","8764325671", "gracia.prata@hotmail.com", new Date(), 0);
 		usuarioRepositoy.save(usuario);
 		log.info("novo usuario criado "+ usuario);
 		

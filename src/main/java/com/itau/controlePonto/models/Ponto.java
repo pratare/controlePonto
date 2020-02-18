@@ -1,6 +1,8 @@
 package com.itau.controlePonto.models;
 
-import java.util.Date;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,9 +19,15 @@ public class Ponto {
 	@GeneratedValue
 	private Integer id;
 	
-	private Date horario;
+	private LocalDate data;
 	
-	private String tipoBatida;
+	private Duration duracao;
+	
+	private LocalDateTime entrada;
+	
+	private LocalDateTime saida;
+	
+	private String tipoPonto;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JsonIgnore
@@ -29,11 +37,13 @@ public class Ponto {
 		
 	}
 
-	public Ponto(Date horario, String tipoBatida) {
+	public Ponto(LocalDate data, Duration duracao, LocalDateTime entrada, LocalDateTime saida, String tipoPonto) {
 		super();
-		
-		this.horario = horario;
-		this.tipoBatida = tipoBatida;
+		this.data = data;
+		this.duracao = duracao;
+		this.entrada = entrada;
+		this.saida = saida;
+		this.tipoPonto = tipoPonto;
 	}
 
 	public Integer getId() {
@@ -44,20 +54,36 @@ public class Ponto {
 		this.id = id;
 	}
 
-	public Date getHorario() {
-		return horario;
+	public LocalDate getData() {
+		return data;
 	}
 
-	public void setHorario(Date horario) {
-		this.horario = horario;
+	public void setData(LocalDate data) {
+		this.data = data;
 	}
 
-	public String getTipoBatida() {
-		return tipoBatida;
+	public Duration getDuracao() {
+		return duracao;
 	}
 
-	public void setTipoBatida(String tipoBatida) {
-		this.tipoBatida = tipoBatida;
+	public void setDuracao(Duration duracao) {
+		this.duracao = duracao;
+	}
+
+	public LocalDateTime getEntrada() {
+		return entrada;
+	}
+
+	public void setEntrada(LocalDateTime entrada) {
+		this.entrada = entrada;
+	}
+
+	public LocalDateTime getSaida() {
+		return saida;
+	}
+
+	public void setSaida(LocalDateTime saida) {
+		this.saida = saida;
 	}
 
 	public Usuario getUsuario() {
@@ -67,5 +93,13 @@ public class Ponto {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
+
+	public String getTipoPonto() {
+		return tipoPonto;
+	}
+
+	public void setTipoPonto(String tipoPonto) {
+		this.tipoPonto = tipoPonto;
+	}
+		
 }
