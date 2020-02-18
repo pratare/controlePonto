@@ -3,9 +3,10 @@ package com.itau.controlePonto.models;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Ponto {
@@ -17,6 +18,9 @@ public class Ponto {
 	private Date horario;
 	
 	private String tipoBatida;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	private Usuario usuario;
 
 	public Ponto(Date horario, String tipoBatida) {
 		super();
@@ -32,8 +36,6 @@ public class Ponto {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	
 
 	public Date getHorario() {
 		return horario;

@@ -1,10 +1,12 @@
 package com.itau.controlePonto.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Usuario {
@@ -17,16 +19,22 @@ public class Usuario {
 	
 	private String cpf;
 	
+	private String email;
+	
 	private Date cadastro;
+	
+	@OneToMany(mappedBy="usuario")
+	private List<Ponto> pontos;
 	
 	public Usuario() {
 		
 	}
 
-	public Usuario(String name, String cpf, Date cadastro) {
+	public Usuario(String name, String cpf, String email, Date cadastro) {
 		super();
 		this.name = name;
 		this.cpf = cpf;
+		this.email = email;
 		this.cadastro = cadastro;
 	}
 
@@ -54,6 +62,14 @@ public class Usuario {
 		this.cpf = cpf;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public Date getCadastro() {
 		return cadastro;
 	}
@@ -61,6 +77,13 @@ public class Usuario {
 	public void setCadastro(Date cadastro) {
 		this.cadastro = cadastro;
 	}
-	
 
+	public List<Ponto> getPontos() {
+		return pontos;
+	}
+
+	public void setPontos(List<Ponto> pontos) {
+		this.pontos = pontos;
+	}
+	
 }

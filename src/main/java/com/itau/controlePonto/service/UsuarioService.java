@@ -1,39 +1,60 @@
 package com.itau.controlePonto.service;
 
-import java.util.ArrayList;
+import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.itau.controlePonto.exception.UserNotFoundException;
 import com.itau.controlePonto.models.Usuario;
+import com.itau.controlePonto.repository.UsuarioRepository;
 
 @Component
 public class UsuarioService {
 	
-private static List<Usuario> usuarios = new ArrayList<>();
+@Autowired
+private UsuarioRepository usuarioRepository;
 	
-	private static int contadorUsuario = 0;
 	
-	public List<Usuario> findAll() {
-		return usuarios;
+	public List<Usuario> listarUsuarios() {
+		return usuarioRepository.findAll();
 	}
 	
-	public Usuario criar(Usuario usuario) {
-		if(usuario.getId() == null) {
-			usuario.setId(++contadorUsuario);
+	public Optional<Usuario> buscarUsuario(int id) {
+		Optional<Usuario> user = usuarioRepository.findById(id);
+		if(!user.isPresent()) {
+			throw new UserNotFoundException("id - "+id);
 		}
-		usuarios.add(usuario);
+		return usuarioRepository.findById(id);
+	}
+	
+	public ResponseEntity<Object> criar(Usuario usuario) {
+		Usuario usuarioCriado = usuarioRepository.save(usuario);
 		
-		return usuario;
+		URI location = ServletUriComponentsBuilder
+			.fromCurrentRequest()
+			.path("/{id}")
+			.buildAndExpand(usuarioCriado.getId()).toUri();
+		
+		return ResponseEntity.created(location).build();
 	}
 	
-	public Usuario findOne(int id) {
-		for(Usuario usuario:usuarios) {
-			if(usuario.getId() == id) {
-				return usuario;
-			}
-		}
-		return null;
+	public ResponseEntity<Object> atualizarUsuario(Usuario usuario) {
+		Usuario usuarioAtualizado = usuarioRepository.save(usuario);
+		
+		ServletUriComponentsBuilder
+				.fromCurrentRequest()
+				.path("/{id}")
+				.buildAndExpand(usuarioAtualizado.getId()).toUri();
+		
+		return ResponseEntity.ok().build(); 
 	}
 
 }
+		
+
+	
