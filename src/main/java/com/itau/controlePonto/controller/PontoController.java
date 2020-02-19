@@ -21,7 +21,7 @@ public class PontoController {
 	@Autowired
 	private PontoService pontoService;
 	
-	@GetMapping("/usuarios/{id}/ponto")
+	@GetMapping("/usuario/{id}/pontos")
 	public List<Ponto> listarPontosBatidosUsuario(@PathVariable int id){
 		return pontoService.listarPontosBatidosUsuario(id);
 	}

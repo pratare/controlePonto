@@ -59,7 +59,7 @@ public class PontoService {
 			apontamento = pontos.get(pontos.size()-1);
 			apontamento.setSaida(LocalDateTime.now());
 			apontamento.setDuracao(somarHoras.horasTrabalhadas(apontamento.getEntrada(), apontamento.getSaida()));
-			usuario.setTotalHorasTrabalhadas(usuario.getTotalHorasTrabalhadas()+apontamento.getDuracao().toNanos());
+			usuario.setTotalHorasTrabalhadas(usuario.getTotalHorasTrabalhadas()+apontamento.getDuracao().toHours());
 			usuarioRepository.save(usuario);
 		}
 		

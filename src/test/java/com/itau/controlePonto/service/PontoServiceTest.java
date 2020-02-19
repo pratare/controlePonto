@@ -62,7 +62,7 @@ public class PontoServiceTest {
 	}
 	
 	@Test
-	public void baterPontoTest() {
+	public void baterPontoTest() throws Exception{
 		new Expectations() {{
 			usuarioRepository.findById(anyInt);
 			result = Optional.of(usuario);
