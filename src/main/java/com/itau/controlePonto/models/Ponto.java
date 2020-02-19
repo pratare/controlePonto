@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Ponto {
 
@@ -20,7 +22,12 @@ public class Ponto {
 	private String tipoBatida;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
+	@JsonIgnore
 	private Usuario usuario;
+	
+	public Ponto() {
+		
+	}
 
 	public Ponto(Date horario, String tipoBatida) {
 		super();
@@ -52,6 +59,13 @@ public class Ponto {
 	public void setTipoBatida(String tipoBatida) {
 		this.tipoBatida = tipoBatida;
 	}
-	
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 	
 }
