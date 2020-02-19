@@ -1,7 +1,7 @@
 # controlePonto
 Sistema de controle de ponto
 
-#Listar todos os usuários: GET /usuarios
+## Listar todos os usuários: GET /usuarios
 Exemplo:
 [
     {
@@ -24,7 +24,7 @@ Exemplo:
     }
 ]
 
-#Exibir dados do usuário: GET /usuarios/{id}
+## Exibir dados do usuário: GET /usuarios/{id}
  Exemplo:
  {
 	"id": 1,
@@ -36,7 +36,7 @@ Exemplo:
 	"pontos": []
 }
 
-#Cadastrar um usuário: POST /usuario
+## Cadastrar um usuário: POST /usuario
 Exemplo Entrada:
 {
 	"name": "Pedro Teste",
@@ -45,7 +45,7 @@ Exemplo Entrada:
 	"cadastro": "2020-02-18"
 }
 
-#Alterar um usuário: PUT /usuario/{id}
+## Alterar um usuário: PUT /usuario/{id}
 Exemplo Entrada:
 {
 	"name": "Pedro Teste da Silva",
@@ -53,13 +53,13 @@ Exemplo Entrada:
 	"email": "pedro.teste@gmail.com"
 }
 
-#Inserir uma entrada/saída no ponto: POST /usuario/[id}/ponto
+## Inserir uma entrada/saída no ponto: POST /usuario/[id}/ponto
 Exemplo Entrada:
 {
 	"tipoPonto": "E"
 }
 
-#Consultar todas as entradas e saídas no ponto de um determinado usuário: GET /usuario/[id}/ponto
+## Consultar todas as entradas e saídas no ponto de um determinado usuário: GET /usuario/[id}/ponto
  Exemplo:
  [
     {
