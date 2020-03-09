@@ -84,3 +84,6 @@ Author
 renato prata: renatoprata@gmail.com
 https://github.com/pratare
 mysql: /bfund)-q2tH
+
+https://gitlab.com/itau-spec-1/java/101-proposta-case-cartoes
+
