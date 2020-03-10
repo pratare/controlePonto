@@ -83,7 +83,7 @@ Exemplo Entrada:
 Author
 renato prata: renatoprata@gmail.com
 https://github.com/pratare
-mysql: /bfund)-q2tH
+mysql: #Descalvado12
 
 https://gitlab.com/itau-spec-1/java/101-proposta-case-cartoes
-
+https://spring.io/guides/gs/accessing-data-mysql/#initial
