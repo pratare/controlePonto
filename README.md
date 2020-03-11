@@ -87,3 +87,4 @@ mysql: #Descalvado12
 
 https://gitlab.com/itau-spec-1/java/101-proposta-case-cartoes
 https://spring.io/guides/gs/accessing-data-mysql/#initial
+https://app.slack.com/client/TUZSU6P39/DUVQPERR8
